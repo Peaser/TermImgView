@@ -23,6 +23,9 @@ IIData     = list(initial_im.getdata())
 averages   = [tupleAverage(pix) for pix in IIData]
 values     = ''.join([svalue(v) for v in averages])
 
+chop = lambda o, l: [o[i:i+l] for i in range(0, len(o), l)]  #For copypasta
+newline_splitted = '\n'.join(chop(values, termLength))
+
 print values
 
 
