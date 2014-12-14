@@ -1,5 +1,5 @@
 from PIL import Image
-import PIL, os
+import PIL, sys
 
 tupleAverage = lambda v: sum(v)/3
 
@@ -13,7 +13,7 @@ def svalue(value):
     }
     return shade_Map[True] #genius
 
-file       = "cat.jpg"
+file       = sys.argv[1]
 initial_im = Image.open(file)
 termLength = 80 #adjust accordingly
 parity     = (termLength/float(initial_im.size[0]))
@@ -24,7 +24,3 @@ averages   = [tupleAverage(pix) for pix in IIData]
 values     = ''.join([svalue(v) for v in averages])
 
 print values
-
-
-
-os.system("pause")
